@@ -56,12 +56,12 @@
 		<label>Успеваемость студента!</label>
 		<form id="student">
 		  	<label>Фамилия: </label><input name="surname" id="surname" value=""></input><br>
-			<label>Первая оценка: </label><input name="i-1" id="i-1" class="i-1" value=""></input><br>
-			<label>Вторая оценка: </label><input name="i-2" id="i-2" class="i-2" value=""></input><br>
-			<label>Третья оценка: </label><input name="i-3" id="i-3" class="i-3"value=""></input><br>
-			<label>Четвёртая оценка: </label><input name="i-4" id="i-4" class="i-4" value=""></input><br>
-			<label>Пятая оценка: </label><input name="i-5" id="i-5" class="i-5" value=""></input><br>
-		  <input type="submit" value="Записать успеваемость">
+			<label>Первая оценка: </label><input name="i-1" id="i-1" class="i-1" value=""><br>
+			<label>Вторая оценка: </label><input name="i-2" id="i-2" class="i-2" value=""><br>
+			<label>Третья оценка: </label><input name="i-3" id="i-3" class="i-3"value=""><br>
+			<label>Четвёртая оценка: </label><input name="i-4" id="i-4" class="i-4" value=""><br>
+			<label>Пятая оценка: </label><input name="i-5" id="i-5" class="i-5" value=""><br>
+			<input type="submit" value="Записать успеваемость">
 		</form>
 		<button>Рандом чисел</button><br>
 
@@ -119,9 +119,9 @@
 			document.getElementById('out').appendChild(tr);	
 			
 			
-			document.querySelector('#Count_1').innerHTML = (Counter1);
-			document.querySelector('#Count_2').innerHTML = (Counter2);
-			document.querySelector('#Count_3').innerHTML = (Counter3);
+			document.querySelector('#Count_1').innerHTML = Counter1;
+			document.querySelector('#Count_2').innerHTML = Counter2;
+			document.querySelector('#Count_3').innerHTML = Counter3;
 		});
 		
 		function getRandomInt(max) {
@@ -133,7 +133,7 @@
 		{
 			for(var i=1; i<=5; i++)
 			{
-				document.querySelector('#i-'+i).innerHTML = (getRandomInt(5));
+				document.querySelector('#i-'+i).value = getRandomInt(5);
 			}
 		}
 	</script>
