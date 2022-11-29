@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -138,4 +139,146 @@
 		}
 	</script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа №3</title>
+    <style>
+		html{
+			background-color: #F7EBCC;
+		}
+		h1 {
+			text-align: center;
+		}
+		h3 {
+			text-align: center;
+		}
+		div {
+            text-align: left;
+        }
+		label {
+			text-align: left;
+			display: block;
+			margin-bottom: .5em;
+		}
+		table {
+			border-collapse: collapse;
+			border: 2px solid rgb(200, 200, 200);
+			letter-spacing: 1px;
+			font-family: sans-serif;
+			font-size: .8rem;
+			margin: auto;
+		}
+		td {
+			border-collapse: collapse;
+			border: 2px solid rgb(200, 200, 200);
+			letter-spacing: 1px;
+			font-family: sans-serif;
+			font-size: .8rem;
+			margin: auto;
+		}
+		tbody{
+			text-align: center;
+		}
+    </style>
+</head>
+
+<body>
+    <header class="header-style">
+        <h1>Лабораторная работа №3</h1>
+        <h3>
+            Вариант №5<br>
+            Выполнил студент группы КИУКИ-20-4<br>
+            Форостяный Александр
+        </h3>
+    </header>
+	
+		<label>Успеваемость студента!</label>
+		<form id="student">
+		  	<label>Фамилия: </label><input name="surname" id="surname" value=""></input><br>
+			<label>Первая оценка: </label><input name="i-1" id="i-1" class="i-1" value=""></input><br>
+			<label>Вторая оценка: </label><input name="i-2" id="i-2" class="i-2" value=""></input><br>
+			<label>Третья оценка: </label><input name="i-3" id="i-3" class="i-3"value=""></input><br>
+			<label>Четвёртая оценка: </label><input name="i-4" id="i-4" class="i-4" value=""></input><br>
+			<label>Пятая оценка: </label><input name="i-5" id="i-5" class="i-5" value=""></input><br>
+		  <input type="submit" value="Записать успеваемость">
+		</form>
+		<button>Рандом чисел</button><br>
+
+		<table>
+			<caption>Таблица успеваемости</caption>
+			<tbody id="out"></tbody>
+		</table>
+		
+		<div>Отличников: </div>	<div id="Count_1" class="i-4" value=""></div><br>
+		<div>Хорошистов: </div>	<div id="Count_2" class="i-4" value=""></div><br>
+		<div>Неуспевающих: </div>	<div id="Count_3" class="i-4" value=""></div><br>
+	<script>
+		let Counter1 = 0, Counter2 = 0, Counter3 = 0;
+		
+		document.getElementById('student').addEventListener('submit', function (event) 
+		{
+			event.preventDefault();
+			  
+			var tr = document.createElement("tr");
+			var cols = ['surname', 'i-1', 'i-2', 'i-3', 'i-4', 'i-5'];
+				  
+			for (var i=0; i<cols.length; ++i) {
+				var td = document.createElement("td");
+				td.textContent = document.getElementById(cols[i]).value;
+				tr.appendChild(td);
+			}
+	
+			let temp = 5;
+			for(var i=1; i<=5; i++)
+			{
+				let num = document.querySelector('#i-'+i).value;
+				if(num < temp)
+					temp = num;
+			}
+			
+			var td = document.createElement("td");
+			if (temp==5)
+			{
+				td.textContent = "отличник."; Counter1++; 
+			}
+			if (temp==4)
+			{
+				td.textContent = "хорошист."; Counter2++;
+			}
+			if (temp==2)
+			{
+				td.textContent = "неуспевающий."; Counter3++;
+			}
+			if(temp==3 || temp<2)
+			{
+				td.textContent = "не правильная запись.";
+			}			
+			tr.appendChild(td);
+			
+			document.getElementById('out').appendChild(tr);	
+			
+			
+			document.querySelector('#Count_1').innerHTML = (Counter1);
+			document.querySelector('#Count_2').innerHTML = (Counter2);
+			document.querySelector('#Count_3').innerHTML = (Counter3);
+		});
+		
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * max);
+		}
+		
+		document.querySelector('button').onclick = myRandom;
+		function myRandom()
+		{
+			for(var i=1; i<=5; i++)
+			{
+				document.querySelector('#i-'+i).innerHTML = (getRandomInt(5));
+			}
+		}
+	</script>
+</body>
+>>>>>>> 940c88834d8de3466591cb026142696a4646af59
 </html>
